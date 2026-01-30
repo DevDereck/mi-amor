@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sorpresa para ti — Nuestro amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Para ti, mi amor</h1>
+      <p class="subtitle">Cada momento contigo es mi favorito.</p>
+      <div class="counter-card">
+        <div class="counter-label">Tiempo juntos</div>
+        <div id="counter" class="counter">—</div>
+        <div class="since">Desde: 28 de noviembre de 2024</div>
+      </div>
+    </div>
+    <div id="hearts" class="hearts" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="gallery-section">
+      <h2>Nuestros mejores momentos</h2>
+      <p class="gallery-desc">Una galería con algunas de nuestras mejores citas y recuerdos.</p>
+      <div class="gallery" id="gallery">
+        <figure class="card" data-quote="Eres mi lugar favorito para perderme.">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=80&auto=format&fit=crop" alt="Momento 1">
+          <figcaption>
+            <strong>Primera aventura</strong>
+            <span class="quote">“Eres mi lugar favorito para perderme.”</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-quote="Contigo todo tiene más color.">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&q=80&auto=format&fit=crop" alt="Momento 2">
+          <figcaption>
+            <strong>Tarde inolvidable</strong>
+            <span class="quote">“Contigo todo tiene más color.”</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-quote="Gracias por ser mi calma.">
+          <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?w=1200&q=80&auto=format&fit=crop" alt="Momento 3">
+          <figcaption>
+            <strong>Risas compartidas</strong>
+            <span class="quote">“Gracias por ser mi calma.”</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <dialog id="lightbox" class="lightbox">
+      <button id="closeLightbox" class="close">✕</button>
+      <img id="lightboxImg" src="" alt="">
+      <p id="lightboxQuote" class="lightbox-quote"></p>
+    </dialog>
+  </main>
+
+  <footer class="footer">
+    <p>Preparado para el 14 de Febrero — ¡Sorpresa! ❤️</p>
+  </footer>
+
+  <script src="src/script.js" type="module"></script>
+</body>
+</html>
