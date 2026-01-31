@@ -8,7 +8,23 @@
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
+  <nav class="site-nav" role="navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#">Nuestro Amor</a>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#momentos">Momentos</a></li>
+        <li><a href="#poemas">Poemas</a></li>
+        <li><a href="#galeria">Galería</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <header class="hero">
+    <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       <h1>Para ti, mi amor</h1>
       <p class="subtitle">Cada momento contigo es mi favorito.</p>
@@ -22,9 +38,9 @@
   </header>
 
   <main>
-    <section class="gallery-section">
-      <h2>Nuestras Citas Favoritas</h2>
-      <p class="gallery-desc">Una galería con algunas de nuestras mejores citas y recuerdos juntos, te amo mochi!</p>
+    <section id="galeria" class="gallery-section">
+      <h2>Nuestras Dates Favoritas</h2>
+      <p class="gallery-desc">Una sección con algunas de nuestras mejores citas y recuerdos.</p>
       <div class="gallery" id="gallery">
         <figure class="card" data-quote="Eres mi lugar favorito para perderme.">
           <img src="assets/Alsalcia.jpg" alt="Cita Hacienda Alsalcia">
@@ -34,35 +50,11 @@
           </figcaption>
         </figure>
 
-        <figure class="card" data-quote="Eres con quien quiero hacer mil locuras.">
-          <img src="assets/Musmani.jpg" alt="Cita Musmani">
-          <figcaption>
-            <strong>Mini Dates en la Musmani</strong>
-            <span class="quote">“La verdad es que no eran citas como tal pero pensé en añadirlo porque eran momentos tan divertidos y en donde podía estar contigo antes de examenes o exposiciones aunque fuesen solo cinco minutos eran los cinco minutos más especiales de mi día y sin ninguna duda de mi semana. Aunque muchas por no decir todas no podía pagar pero ni los pasajes del bus porque sino no podía comprarte un fresco caminar para verte sin importar el tiempo era lo más especial para mí.”</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Contigo siempre tengo mariposas en el estómago.">
-            <img src="assets/primeracita.jpg" alt="Nuestra Primera Cita">
-          <figcaption>
-            <strong>Nuestra Primera Cita</strong>
-            <span class="quote">“Nuestra primera cita siempre va a ser especial y recordada, fue la primera vez que salimos solos y significo mucho para ambos. Ese día estuvo lleno de amor, mariposas y alegría, ¡ah! y llena de chilaquiles y frapuccino de Starbucks obvi jaja.”</span>
-          </figcaption>
-        </figure>
-
         <figure class="card" data-quote="Contigo todo es más divertido.">
-            <img src="assets/bolos.jpg" alt="Cita a Bolos">
+          <img src="assets/bolos.jpg" alt="Cita a Bolos">
           <figcaption>
             <strong>Cita a los Bolos</strong>
             <span class="quote">“La verdad esta es una de mis citas favoritas porque pudimos disfrutar un montón, estuvo cargado de risas y de competetividad, yo te gané una y vos otra realmente fue parejo jaja pero me gustó también porque fuimos a Mac lueg por un fresco y hablamos mucho ese día del futuro y eso me gusta mucho!”</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Contigo todo tiene más color.">
-            <img src="assets/primerConcierto.jpg" alt="Nuestro Primer Concierto">
-          <figcaption>
-            <strong>Nuestro Primer Concierto Juntos</strong>
-            <span class="quote">“Fue increíble como la pasamos ese día, hubieron tantas cosas como mi historia con las cocas invitando a todos jaja que triste fue para mi billetera pero sobre todo que lindo fue estar junto a ti y ver a nuestra banda favorita en Español juntos.”</span>
           </figcaption>
         </figure>
 
@@ -73,6 +65,47 @@
             <span class="quote">“Sin duda fue una de mis experiencias favoritas, compartir ese momento contigo y cocinar galletas juntos fue muy especial a pesar de que se nos quemaron un poco JAJAJAJA fue una cita muy pero muy divertida y especial para mí”.</span>
           </figcaption>
         </figure>
+
+        <figure class="card" data-quote="Contigo siempre tengo mariposas en el estómago.">
+          <img src="assets/primeracita.jpg" alt="Nuestra Primera Cita">
+          <figcaption>
+            <strong>Nuestra Primera Cita</strong>
+            <span class="quote">“Nuestra primera cita siempre va a ser especial y recordada, fue la primera vez que salimos solos y significo mucho para ambos. Ese día estuvo lleno de amor, mariposas y alegría, ¡ah! y llena de chilaquiles y frapuccino de Starbucks obvi jaja.”</span>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-quote="Contigo todo tiene más color.">
+          <img src="assets/primerConcierto.jpg" alt="Nuestro Primer Concierto">
+          <figcaption>
+            <strong>Nuestro Primer Concierto Juntos</strong>
+            <span class="quote">“Fue increíble como la pasamos ese día, hubieron tantas cosas como mi historia con las cocas invitando a todos jaja que triste fue para mi billetera pero sobre todo que lindo fue estar junto a ti y ver a nuestra banda favorita en Español juntos.”</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="poemas" class="poemas-section">
+      <h2>Poemas</h2>
+      <article class="poema">
+        <p>En tus ojos encuentro el puerto,</p>
+        <p>en tu risa, la canción que guardo,</p>
+        <p>mano en mano, paso a paso,</p>
+        <p>te llevo siempre en mi regazo.</p>
+      </article>
+    </section>
+
+    <section id="momentos" class="moments-section">
+      <h2>Momentos</h2>
+      <div class="slider">
+        <button class="slider-btn prev" id="prevBtn" aria-label="Anterior">‹</button>
+        <div class="slides" id="momentsSlider">
+          <div class="slide"><img src="assets/Alsalcia.jpg" alt="Momento A"></div>
+          <div class="slide"><img src="assets/bolos.jpg" alt="Momento B"></div>
+          <div class="slide"><img src="assets/Galletas.jpg" alt="Momento C"></div>
+          <div class="slide"><img src="assets/Musmani.jpg" alt="Momento D"></div>
+          <div class="slide"><img src="assets/primeracita.jpg" alt="Momento E"></div>
+        </div>
+        <button class="slider-btn next" id="nextBtn" aria-label="Siguiente">›</button>
       </div>
     </section>
 

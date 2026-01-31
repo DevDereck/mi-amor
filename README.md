@@ -10,6 +10,7 @@
  - `src/styles.css` — estilos (mobile-first)
  - `src/script.js` — contador, galería y animaciones
  - `assets/images` — carpeta para tus fotos (añade imágenes aquí y actualiza los `src` en `index.html`)
+ - `assets/hero-video.mp4` — video de fondo para la sección hero (colócalo en `assets/`)
 
  ## Desarrollo local
  Puedes servir la carpeta con un servidor estático simple. Ejemplos:

@@ -27,6 +27,10 @@ function updateCounter(){
   const d = computeDuration(startDate, now);
   const el = document.getElementById('counter');
   el.textContent = `${d.years} años · ${d.months} meses · ${d.days} días`;
+  if(el){
+    el.classList.add('pulse');
+    setTimeout(()=> el.classList.remove('pulse'), 700);
+  }
 }
 
 // run once and every second
@@ -48,11 +52,14 @@ gallery.addEventListener('click', (e) => {
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt || '';
   lightboxQuote.textContent = quote;
-  if(typeof lightbox.showModal === 'function') lightbox.showModal();
+  if(typeof lightbox.showModal === 'function'){
+    lightbox.showModal();
+    lightbox.classList.add('open');
+  }
 });
 
-closeLightbox.addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.close() });
+closeLightbox.addEventListener('click', () => { lightbox.classList.remove('open'); lightbox.close(); });
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox){ lightbox.classList.remove('open'); lightbox.close() } });
 
 // floating hearts
 const heartsContainer = document.getElementById('hearts');
@@ -78,6 +85,84 @@ setInterval(spawnHeart, 800);
 
 // small reveal for headings
 window.addEventListener('load', ()=>{
-  const h2 = document.querySelectorAll('.gallery-section h2');
-  h2.forEach(node=> node.classList.add('animate'));
+  // flag for CSS entrance animations
+  document.body.classList.add('loaded');
+  // nav toggle for mobile
+  // nav toggle for mobile
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  // smooth scroll for nav links
+  document.querySelectorAll('.site-nav a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      if(navLinks) navLinks.classList.remove('open');
+    });
+  });
+
+  // moments slider behavior
+  const slider = document.getElementById('momentsSlider');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  if(slider){
+    const scrollByAmount = () => slider.clientWidth * 0.86;
+    prevBtn && prevBtn.addEventListener('click', ()=>{ slider.classList.add('anim'); slider.scrollBy({left: -scrollByAmount(), behavior: 'smooth'}); setTimeout(()=>slider.classList.remove('anim'),420); });
+    nextBtn && nextBtn.addEventListener('click', ()=>{ slider.classList.add('anim'); slider.scrollBy({left: scrollByAmount(), behavior: 'smooth'}); setTimeout(()=>slider.classList.remove('anim'),420); });
+    // allow keyboard navigation when slider focused
+    slider.tabIndex = 0;
+    slider.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowLeft') slider.scrollBy({left: -scrollByAmount(), behavior:'smooth'});
+      if(e.key === 'ArrowRight') slider.scrollBy({left: scrollByAmount(), behavior:'smooth'});
+    });
+
+    // Click on slider images opens lightbox
+    slider.addEventListener('click', (e)=>{
+      const slide = e.target.closest('.slide');
+      if(!slide) return;
+      const img = slide.querySelector('img');
+      if(!img) return;
+      // show in lightbox
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxQuote.textContent = img.alt || '';
+      if(typeof lightbox.showModal === 'function'){
+        lightbox.showModal();
+        lightbox.classList.add('open');
+        // focus close button for accessibility
+        closeLightbox.focus();
+      }
+    });
+
+    // Autoplay behavior for slider
+    let autoplayTimer = null;
+    const startAutoplay = ()=>{
+      if(autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(()=>{
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        // if near end, loop to start
+        if(slider.scrollLeft + 10 >= maxScroll){
+          slider.scrollTo({left:0, behavior:'smooth'});
+        } else {
+          slider.scrollBy({left: scrollByAmount(), behavior:'smooth'});
+        }
+      }, 3500);
+    };
+    const stopAutoplay = ()=>{ if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; } };
+
+    // pause on hover / focus for better UX
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    slider.addEventListener('focusin', stopAutoplay);
+    slider.addEventListener('focusout', startAutoplay);
+
+    // start autoplay
+    startAutoplay();
+  }
 });
