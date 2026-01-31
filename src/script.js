@@ -75,3 +75,9 @@ function spawnHeart(){
 
 // spawn a few hearts periodically
 setInterval(spawnHeart, 800);
+
+// small reveal for headings
+window.addEventListener('load', ()=>{
+  const h2 = document.querySelectorAll('.gallery-section h2');
+  h2.forEach(node=> node.classList.add('animate'));
+});

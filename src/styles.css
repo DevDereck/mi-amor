@@ -36,7 +36,16 @@ body{background:linear-gradient(180deg,var(--bg),#fff);color:#111}
 
 /* Gallery */
 .gallery-section{padding:1.25rem}
-.gallery-section h2{margin:0 0 .25rem;font-size:1.1rem;color:#111}
+.gallery-section h2{margin:0 0 .6rem;font-size:1.05rem;color:#111;font-weight:600;letter-spacing:0.2px;text-align:center;position:relative;padding-bottom:.4rem}
+.gallery-section h2{
+  background:linear-gradient(90deg,var(--accent),#ff9bb3);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.gallery-section h2::after{content:"";display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--accent),#ff9bb3);margin:8px auto 0;border-radius:3px;opacity:0.95}
+.gallery-section h2{transition:transform .36s cubic-bezier(.2,.9,.2,1),opacity .36s}
+.gallery-section h2.animate{transform:translateY(0);opacity:1}
 .gallery-desc{margin:.25rem 0 1rem;color:var(--muted)}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
 .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer}
@@ -60,3 +69,10 @@ body{background:linear-gradient(180deg,var(--bg),#fff);color:#111}
   .gallery{grid-template-columns:repeat(3,1fr)}
   .card img{height:200px}
 }
+
+/* Small entrance animation for headings (mobile-first) */
+.gallery-section h2{transform:translateY(6px);opacity:.0}
+@media (min-width:360px){
+  .gallery-section h2{transform:translateY(4px);opacity:.35}
+}
+/* reveal after DOM load via JS class toggle (handled below) */
