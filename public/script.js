@@ -1,8 +1,6 @@
-
 const startDate = new Date('2024-11-28T00:00:00');
 
 function computeDuration(from, to){
-  // compute years, months, days, hours, minutes, seconds using UTC to avoid timezone/DST issues
   let years = to.getUTCFullYear() - from.getUTCFullYear();
   let months = to.getUTCMonth() - from.getUTCMonth();
   let days = to.getUTCDate() - from.getUTCDate();
@@ -14,7 +12,6 @@ function computeDuration(from, to){
   if(minutes < 0){ minutes += 60; hours -= 1; }
   if(hours < 0){ hours += 24; days -= 1; }
   if(days < 0){
-    // borrow days from previous month (in UTC)
     const prevMonthDays = new Date(Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), 0)).getUTCDate();
     days += prevMonthDays; months -= 1;
   }
@@ -46,7 +43,6 @@ function updateCounter(){
   }
 }
 
-// run once and every second
 updateCounter();
 setInterval(updateCounter, 1000);
 
@@ -79,7 +75,7 @@ const heartsContainer = document.getElementById('hearts');
 function spawnHeart(){
   const heart = document.createElement('div');
   heart.className = 'heart';
-  const size = 12 + Math.random()*28; // px
+  const size = 12 + Math.random()*28;
   heart.style.width = `${size}px`;
   heart.style.height = `${size}px`;
   heart.style.left = `${20 + Math.random()*60}%`;
@@ -93,15 +89,10 @@ function spawnHeart(){
   setTimeout(()=>{ heart.remove() }, duration+100);
 }
 
-// spawn a few hearts periodically
 setInterval(spawnHeart, 800);
 
-// small reveal for headings
 window.addEventListener('load', ()=>{
-  // flag for CSS entrance animations
   document.body.classList.add('loaded');
-  // nav toggle for mobile
-  // nav toggle for mobile
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   if(navToggle && navLinks){
@@ -110,8 +101,7 @@ window.addEventListener('load', ()=>{
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   }
-  // smooth scroll for nav links
-  document.querySelectorAll('.site-nav a[href^="#"]').forEach(a=>{
+  document.querySelectorAll('.site-nav a[href^=\"#\"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
@@ -120,7 +110,6 @@ window.addEventListener('load', ()=>{
     });
   });
 
-  // moments slider behavior
   const slider = document.getElementById('momentsSlider');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -128,38 +117,32 @@ window.addEventListener('load', ()=>{
     const scrollByAmount = () => slider.clientWidth * 0.86;
     prevBtn && prevBtn.addEventListener('click', ()=>{ slider.classList.add('anim'); slider.scrollBy({left: -scrollByAmount(), behavior: 'smooth'}); setTimeout(()=>slider.classList.remove('anim'),420); });
     nextBtn && nextBtn.addEventListener('click', ()=>{ slider.classList.add('anim'); slider.scrollBy({left: scrollByAmount(), behavior: 'smooth'}); setTimeout(()=>slider.classList.remove('anim'),420); });
-    // allow keyboard navigation when slider focused
     slider.tabIndex = 0;
     slider.addEventListener('keydown', (e)=>{
       if(e.key === 'ArrowLeft') slider.scrollBy({left: -scrollByAmount(), behavior:'smooth'});
       if(e.key === 'ArrowRight') slider.scrollBy({left: scrollByAmount(), behavior:'smooth'});
     });
 
-    // Click on slider images opens lightbox
     slider.addEventListener('click', (e)=>{
       const slide = e.target.closest('.slide');
       if(!slide) return;
       const img = slide.querySelector('img');
       if(!img) return;
-      // show in lightbox
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt || '';
       lightboxQuote.textContent = img.alt || '';
       if(typeof lightbox.showModal === 'function'){
         lightbox.showModal();
         lightbox.classList.add('open');
-        // focus close button for accessibility
         closeLightbox.focus();
       }
     });
 
-    // Autoplay behavior for slider
     let autoplayTimer = null;
     const startAutoplay = ()=>{
       if(autoplayTimer) clearInterval(autoplayTimer);
       autoplayTimer = setInterval(()=>{
         const maxScroll = slider.scrollWidth - slider.clientWidth;
-        // if near end, loop to start
         if(slider.scrollLeft + 10 >= maxScroll){
           slider.scrollTo({left:0, behavior:'smooth'});
         } else {
@@ -169,14 +152,11 @@ window.addEventListener('load', ()=>{
     };
     const stopAutoplay = ()=>{ if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; } };
 
-    // pause on hover / focus for better UX
     slider.addEventListener('mouseenter', stopAutoplay);
     slider.addEventListener('mouseleave', startAutoplay);
     slider.addEventListener('focusin', stopAutoplay);
     slider.addEventListener('focusout', startAutoplay);
 
-    // start autoplay
     startAutoplay();
   }
 });
-//
