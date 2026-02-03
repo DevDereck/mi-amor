@@ -1,3 +1,76 @@
+/* Canciones Favoritas */
+.canciones-section {
+  padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, #fff7fb 60%, #ffe3ef 100%);
+  border-top: 1px solid rgba(233,66,107,0.08);
+}
+.canciones-desc {
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.canciones-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+.cancion-card {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+  transition: transform .22s, box-shadow .22s;
+}
+.cancion-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(233,66,107,0.10);
+}
+.cancion-info {
+  text-align: center;
+  margin-top: .2rem;
+}
+.cancion-titulo {
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+}
+.cancion-artista {
+  color: var(--muted);
+  font-size: .98rem;
+}
+.agregar-cancion-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.agregar-cancion-form input {
+  padding: .5rem .8rem;
+  border-radius: 8px;
+  border: 1px solid #ffd6c2;
+  font-size: 1rem;
+  outline: none;
+}
+.agregar-cancion-form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: .5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s;
+}
+.agregar-cancion-form button:hover {
+  background: var(--accent-2);
+}
 :root{
   /* Paleta romántica */
   --bg: #fff7f8;

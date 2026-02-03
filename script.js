@@ -1,3 +1,42 @@
+// --- Canciones Favoritas ---
+const cancionesList = document.getElementById('cancionesList');
+const agregarCancionForm = document.getElementById('agregarCancionForm');
+
+if (agregarCancionForm) {
+  agregarCancionForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const url = document.getElementById('spotifyUrl').value.trim();
+    const titulo = document.getElementById('tituloCancion').value.trim();
+    const artista = document.getElementById('artistaCancion').value.trim();
+    // Extraer el ID de la canción de la URL de Spotify (acepta más formatos)
+    // Ejemplo de URL válida: https://open.spotify.com/track/3Zwu2K0Qa5sT6teCCHPShP?si=xxxx
+    // Permite URLs con o sin slash final, con o sin parámetros
+    // Permite URLs con o sin segmento de idioma (ej: /intl-es/) antes de /track/
+    const match = url.match(/(?:https?:\/\/)?open\.spotify\.com\/(?:[a-zA-Z0-9-]+\/)?track\/([a-zA-Z0-9]+)(?:[/?].*)?/);
+    if (!match) {
+      alert('Por favor ingresa una URL válida de canción de Spotify.');
+      return;
+    }
+    const trackId = match[1];
+    const iframe = document.createElement('iframe');
+    iframe.style.borderRadius = '12px';
+    iframe.src = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
+    iframe.width = '100%';
+    iframe.height = '80';
+    iframe.frameBorder = '0';
+    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture';
+    iframe.loading = 'lazy';
+    const card = document.createElement('div');
+    card.className = 'cancion-card';
+    card.appendChild(iframe);
+    const info = document.createElement('div');
+    info.className = 'cancion-info';
+    info.innerHTML = `<span class=\"cancion-titulo\">${titulo}</span><span class=\"cancion-artista\">${artista}</span>`;
+    card.appendChild(info);
+    cancionesList.appendChild(card);
+    agregarCancionForm.reset();
+  });
+}
 const startDate = new Date('2024-11-28T00:00:00');
 
 function computeDuration(from, to){
