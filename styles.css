@@ -26,6 +26,7 @@
   align-items: center;
   gap: .7rem;
   transition: transform .22s, box-shadow .22s;
+  position: relative;
 }
 .cancion-card:hover {
   transform: translateY(-6px) scale(1.03);
@@ -34,6 +35,25 @@
 .cancion-info {
   text-align: center;
   margin-top: .2rem;
+}
+.eliminar-cancion-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent-2);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(233,66,107,0.08);
+  transition: background .18s;
+  z-index: 2;
+}
+.eliminar-cancion-btn:hover {
+  background: var(--accent);
 }
 .cancion-titulo {
   font-weight: 600;
