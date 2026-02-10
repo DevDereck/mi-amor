@@ -1,3 +1,46 @@
+// Modal Valentine 
+window.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('valentineModal');
+  const mainContent = document.getElementById('mainContent');
+  const btnYes = document.getElementById('valentineYes');
+  const btnNo = document.getElementById('valentineNo');
+  const envelope = document.getElementById('valentineEnvelope');
+  const btnEnter = document.getElementById('valentineEnter');
+  let moveCount = 0;
+  if (btnNo) {
+    btnNo.addEventListener('mouseenter', () => {
+      moveCount++;
+      const parent = btnNo.parentElement;
+      btnNo.style.position = 'relative';
+      btnNo.style.transition = 'transform .22s';
+      const dx = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
+      const dy = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 20);
+      btnNo.style.transform = `translate(${dx}px, ${dy}px)`;
+      setTimeout(() => { btnNo.style.transform = ''; }, 700);
+    });
+    btnNo.addEventListener('click', (e) => {
+      e.preventDefault();
+      btnNo.dispatchEvent(new Event('mouseenter'));
+    });
+  }
+  if (btnYes) {
+    btnYes.addEventListener('click', () => {
+      document.querySelector('.valentine-card').style.display = 'none';
+      envelope.style.display = 'flex';
+    });
+  }
+  if (btnEnter) {
+    btnEnter.addEventListener('click', () => {
+      modal.style.display = 'none';
+      envelope.style.display = 'none';
+      mainContent.style.display = 'block';
+      document.body.style.overflow = 'auto';
+    });
+  }
+  // Oculta el contenido principal hasta aceptar
+  if (mainContent) mainContent.style.display = 'none';
+  document.body.style.overflow = 'hidden';
+});
 // --- Canciones Favoritas con Firestore ---
 const cancionesList = document.getElementById('cancionesList');
 const agregarCancionForm = document.getElementById('agregarCancionForm');
@@ -237,3 +280,18 @@ window.addEventListener('load', ()=>{
     startAutoplay();
   }
 });
+
+// --- VIDEO LOOP EN CELULARES ---
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  // Forzar loop y autoplay en móviles (algunos navegadores requieren reiniciar el video al terminar)
+  heroVideo.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  });
+  // iOS: asegurar que playsinline esté presente
+  heroVideo.setAttribute('playsinline', '');
+  heroVideo.setAttribute('muted', '');
+  heroVideo.setAttribute('autoplay', '');
+  heroVideo.setAttribute('loop', '');
+}

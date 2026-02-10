@@ -11,6 +11,28 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+      <div id="valentineModal" class="valentine-modal">
+        <div class="valentine-card">
+          <h2>¿Quieres ser mi Valentine?</h2>
+          <div class="valentine-btns">
+            <button id="valentineYes" class="valentine-yes">Sí</button>
+            <button id="valentineNo" class="valentine-no">No</button>
+          </div>
+        </div>
+        <div id="valentineEnvelope" class="valentine-envelope" style="display:none;">
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
+            <div class="envelope-letter">
+              <div class="letter-content">
+                <p>yeaaah, sabía que ibas a marcar que sí.<br>ti amo 3 millones!<br>sigue adelante con tu sorpresa</p>
+                <button id="valentineEnter" class="valentine-enter"><span>❤️</span> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div id="mainContent" style="display:none;">
     <nav class="site-nav" role="navigation">
       <div class="nav-inner">
         <a class="brand" href="#">Nuestro Amor</a>
@@ -18,9 +40,10 @@
           ☰
         </button>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#momentos">Momentos</a></li>
+          <li><a href="#galeria">Dates</a></li>
           <li><a href="#poemas">Poemas</a></li>
-          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#momentos">Galería</a></li>
+          <li><a href="#canciones">Canciones</a></li>
         </ul>
       </div>
     </nav>
@@ -160,7 +183,7 @@
       </section>
 
       <section id="momentos" class="moments-section">
-        <h2>Momentos</h2>
+        <h2>Galería</h2>
         <div class="slider">
           <button class="slider-btn prev" id="prevBtn" aria-label="Anterior">
             ‹
@@ -241,6 +264,7 @@
       </p>
     </footer>
 
+    </div>
     <script src="/script.js" defer></script>
     <!-- Firebase App (modular CDN) -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
