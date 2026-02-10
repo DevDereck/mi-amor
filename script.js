@@ -16,7 +16,14 @@ function renderCancionFirestore(id, trackId, titulo, artista) {
   card.appendChild(iframe);
   const info = document.createElement('div');
   info.className = 'cancion-info';
-  info.innerHTML = `<span class="cancion-titulo">${titulo}</span><span class="cancion-artista">${artista}</span>`;
+  // Botón abrir en Spotify
+  const abrirBtn = document.createElement('a');
+  abrirBtn.className = 'abrir-spotify-btn';
+  abrirBtn.href = `https://open.spotify.com/track/${trackId}`;
+  abrirBtn.target = '_blank';
+  abrirBtn.rel = 'noopener noreferrer';
+  abrirBtn.textContent = 'Abrir en Spotify';
+  info.appendChild(abrirBtn);
   card.appendChild(info);
   // Botón eliminar
   const btn = document.createElement('button');
