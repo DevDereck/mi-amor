@@ -1,180 +1,262 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MOCHI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <nav class="site-nav" role="navigation">
-    <div class="nav-inner">
-      <a class="brand" href="#">Nuestro Amor</a>
-      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#momentos">Momentos</a></li>
-        <li><a href="#poemas">Poemas</a></li>
-        <li><a href="#galeria">Galería</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-content">
-      <h1>Para ti, mi amor</h1>
-      <p class="subtitle">Cada momento contigo es mi favorito.</p>
-      <div class="counter-card">
-        <div class="counter-label">Tiempo juntos</div>
-        <div id="counter" class="counter">—</div>
-        <div class="since">Desde: 28 de noviembre de 2024</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MOCHI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav" role="navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#">Nuestro Amor</a>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false">
+          ☰
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#momentos">Momentos</a></li>
+          <li><a href="#poemas">Poemas</a></li>
+          <li><a href="#galeria">Galería</a></li>
+        </ul>
       </div>
-    </div>
-    <div id="hearts" class="hearts" aria-hidden="true"></div>
-  </header>
+    </nav>
 
-  <main>
-    <section id="galeria" class="gallery-section">
-      <h2>Nuestras Dates Favoritas</h2>
-      <p class="gallery-desc">Una sección con algunas de nuestras mejores citas y recuerdos.</p>
-      <div class="gallery" id="gallery">
-        <figure class="card" data-quote="Eres mi lugar favorito para perderme.">
-          <img src="assets/Alsalcia.jpg" alt="Cita Hacienda Alsalcia">
-          <figcaption>
-            <strong>Tour en Hacienda Alsalcia</strong>
-            <span class="quote">“Ese día fue muy divertido amor la verdad, te recuerdas cuando me comí el grano de café que no se comía? JAJAJA, fue lindo compartir un lugar tan bonito y único. Hasta hicimos el tour de café y la verdad no le tenía muchas expectactivas pero contigo todo es más divertido.”</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Contigo todo es más divertido.">
-          <img src="assets/bolos.jpg" alt="Cita a Bolos">
-          <figcaption>
-            <strong>Cita a los Bolos</strong>
-            <span class="quote">“La verdad esta es una de mis citas favoritas porque pudimos disfrutar un montón, estuvo cargado de risas y de competetividad, yo te gané una y vos otra realmente fue parejo jaja pero me gustó también porque fuimos a Mac lueg por un fresco y hablamos mucho ese día del futuro y eso me gusta mucho!”</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Gracias por ser mi calma.">
-          <img src="assets/Galletas.jpg" alt="Primera vez haciendo galletas navideñas">
-          <figcaption>
-            <strong>Primera vez haciendo galletas navideñas</strong>
-            <span class="quote">“Sin duda fue una de mis experiencias favoritas, compartir ese momento contigo y cocinar galletas juntos fue muy especial a pesar de que se nos quemaron un poco JAJAJAJA fue una cita muy pero muy divertida y especial para mí”.</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Contigo siempre tengo mariposas en el estómago.">
-          <img src="assets/primeracita.jpg" alt="Nuestra Primera Cita">
-          <figcaption>
-            <strong>Nuestra Primera Cita</strong>
-            <span class="quote">“Nuestra primera cita siempre va a ser especial y recordada, fue la primera vez que salimos solos y significo mucho para ambos. Ese día estuvo lleno de amor, mariposas y alegría, ¡ah! y llena de chilaquiles y frapuccino de Starbucks obvi jaja.”</span>
-          </figcaption>
-        </figure>
-
-        <figure class="card" data-quote="Contigo todo tiene más color.">
-          <img src="assets/primerConcierto.jpg" alt="Nuestro Primer Concierto">
-          <figcaption>
-            <strong>Nuestro Primer Concierto Juntos</strong>
-            <span class="quote">“Fue increíble como la pasamos ese día, hubieron tantas cosas como mi historia con las cocas invitando a todos jaja que triste fue para mi billetera pero sobre todo que lindo fue estar junto a ti y ver a nuestra banda favorita en Español juntos.”</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="poemas" class="poemas-section">
-      <h2>Poemas</h2>
-      <article class="poema">
-        <p>No eres mi San Valentín,</p>
-        <p>eres mi amor todos los días.</p>
-        <p>Mi corazón te eligió</p>
-        <p>y no piensa soltarte.</p>
-      </article>
-
-      <article class="poema">
-        <p>Eres mi casualidad más bonita,</p>
-        <p>mi razón sin horario,</p>
-        <p>mi sonrisa diaria.</p>
-      </article>
-
-      <article class="poema">
-        <p>Te pienso sin querer,</p>
-        <p>te quiero sin medida,</p>
-        <p>te elijo cada día.</p>
-      </article>
-
-      <article class="poema">
-        <p>Mi lugar favorito</p>
-        <p>no es un sitio,</p>
-        <p>es contigo.</p>
-      </article>
-    </section>
-
-    <section id="momentos" class="moments-section">
-      <h2>Momentos</h2>
-      <div class="slider">
-        <button class="slider-btn prev" id="prevBtn" aria-label="Anterior">‹</button>
-        <div class="slides" id="momentsSlider">
-          <div class="slide"><img src="assets/Kintsugui.jpg"></div>
-          <div class="slide"><img src="assets/Graduación.jpg"></div>
-          <div class="slide"><img src="assets/primerafoto.jpg"></div>
-          <div class="slide"><img src="assets/mynurse.jpg" ></div>
-          <div class="slide"><img src="assets/stb.jpg"></div>
-          <div class="slide"><img src="assets/macdate.jpg" ></div>
-          <div class="slide"><img src="assets/tacodate.jpg"></div>
-          <div class="slide"><img src="assets/ns1.jpg" ></div>
-          <div class="slide"><img src="assets/videollamada.jpg"></div>
-          <div class="slide"><img src="assets/videollamada2.jpg" ></div>
-          <div class="slide"><img src="assets/ns2.jpg"></div>
-          <div class="slide"><img src="assets/cookies.jpg" ></div>
-          <div class="slide"><img src="assets/videollamada3.jpg"></div>
-          <div class="slide"><img src="assets/ns3.jpg" ></div>
-          <div class="slide"><img src="assets/ns4.jpg"></div>
-          <div class="slide"><img src="assets/food1.jpg" ></div>
-          <div class="slide"><img src="assets/ns5.jpg"></div>
-          <div class="slide"><img src="assets/food2.jpg" ></div>
-          <div class="slide"><img src="assets/honguito.jpg"></div>
-          <div class="slide"><img src="assets/ns6.jpg" ></div>
-          <div class="slide"><img src="assets/ns7.jpg"></div>
-          <div class="slide"><img src="assets/ns8.jpg" ></div>
-          <div class="slide"><img src="assets/you.jpg"></div>
-          <div class="slide"><img src="assets/you2.jpg" ></div>
-          <div class="slide"><img src="assets/ns9.jpg"></div>
-          <div class="slide"><img src="assets/pintacafe.jpg" ></div>
-          <div class="slide"><img src="assets/you3.jpg"></div>
-          <div class="slide"><img src="assets/videollamada4.jpg" ></div>
+    <header class="hero">
+      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/hero-video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1>Para ti, mi amor</h1>
+        <p class="subtitle">Cada momento contigo es mi favorito.</p>
+        <div class="counter-card">
+          <div class="counter-label">Tiempo juntos</div>
+          <div id="counter" class="counter">—</div>
+          <div class="since">Desde: 28 de noviembre de 2024</div>
         </div>
-        <button class="slider-btn next" id="nextBtn" aria-label="Siguiente">›</button>
       </div>
-    </section>
+      <div id="hearts" class="hearts" aria-hidden="true"></div>
+    </header>
 
-    <dialog id="lightbox" class="lightbox">
-      <button id="closeLightbox" class="close">✕</button>
-      <img id="lightboxImg" src="" alt="">
-      <p id="lightboxQuote" class="lightbox-quote"></p>
-    </dialog>
-  </main>
+    <main>
+      <section id="galeria" class="gallery-section">
+        <h2>Nuestras Dates Favoritas</h2>
+        <p class="gallery-desc">
+          Una sección con algunas de nuestras mejores citas y recuerdos.
+        </p>
+        <div class="gallery" id="gallery">
+          <figure
+            class="card"
+            data-quote="Eres mi lugar favorito para perderme."
+          >
+            <img src="assets/Alsalcia.jpg" alt="Cita Hacienda Alsalcia" />
+            <figcaption>
+              <strong>Tour en Hacienda Alsalcia</strong>
+              <span class="quote"
+                >“Ese día fue muy divertido amor la verdad, te recuerdas cuando
+                me comí el grano de café que no se comía? JAJAJA, fue lindo
+                compartir un lugar tan bonito y único. Hasta hicimos el tour de
+                café y la verdad no le tenía muchas expectactivas pero contigo
+                todo es más divertido.”</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure class="card" data-quote="Contigo todo es más divertido.">
+            <img src="assets/bolos.jpg" alt="Cita a Bolos" />
+            <figcaption>
+              <strong>Cita a los Bolos</strong>
+              <span class="quote"
+                >“La verdad esta es una de mis citas favoritas porque pudimos
+                disfrutar un montón, estuvo cargado de risas y de
+                competetividad, yo te gané una y vos otra realmente fue parejo
+                jaja pero me gustó también porque fuimos a Mac lueg por un
+                fresco y hablamos mucho ese día del futuro y eso me gusta
+                mucho!”</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure class="card" data-quote="Gracias por ser mi calma.">
+            <img
+              src="assets/Galletas.jpg"
+              alt="Primera vez haciendo galletas navideñas"
+            />
+            <figcaption>
+              <strong>Primera vez haciendo galletas navideñas</strong>
+              <span class="quote"
+                >“Sin duda fue una de mis experiencias favoritas, compartir ese
+                momento contigo y cocinar galletas juntos fue muy especial a
+                pesar de que se nos quemaron un poco JAJAJAJA fue una cita muy
+                pero muy divertida y especial para mí”.</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure
+            class="card"
+            data-quote="Contigo siempre tengo mariposas en el estómago."
+          >
+            <img src="assets/primeracita.jpg" alt="Nuestra Primera Cita" />
+            <figcaption>
+              <strong>Nuestra Primera Cita</strong>
+              <span class="quote"
+                >“Nuestra primera cita siempre va a ser especial y recordada,
+                fue la primera vez que salimos solos y significo mucho para
+                ambos. Ese día estuvo lleno de amor, mariposas y alegría, ¡ah! y
+                llena de chilaquiles y frapuccino de Starbucks obvi jaja.”</span
+              >
+            </figcaption>
+          </figure>
+
+          <figure class="card" data-quote="Contigo todo tiene más color.">
+            <img
+              src="assets/primerConcierto.jpg"
+              alt="Nuestro Primer Concierto"
+            />
+            <figcaption>
+              <strong>Nuestro Primer Concierto Juntos</strong>
+              <span class="quote"
+                >“Fue increíble como la pasamos ese día, hubieron tantas cosas
+                como mi historia con las cocas invitando a todos jaja que triste
+                fue para mi billetera pero sobre todo que lindo fue estar junto
+                a ti y ver a nuestra banda favorita en Español juntos.”</span
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="poemas" class="poemas-section">
+        <h2>Poemas</h2>
+        <article class="poema">
+          <p>No eres mi San Valentín,</p>
+          <p>eres mi amor todos los días.</p>
+          <p>Mi corazón te eligió</p>
+          <p>y no piensa soltarte.</p>
+        </article>
+
+        <article class="poema">
+          <p>Eres mi casualidad más bonita,</p>
+          <p>mi razón sin horario,</p>
+          <p>mi sonrisa diaria.</p>
+        </article>
+
+        <article class="poema">
+          <p>Te pienso sin querer,</p>
+          <p>te quiero sin medida,</p>
+          <p>te elijo cada día.</p>
+        </article>
+
+        <article class="poema">
+          <p>Mi lugar favorito</p>
+          <p>no es un sitio,</p>
+          <p>es contigo.</p>
+        </article>
+      </section>
+
+      <section id="momentos" class="moments-section">
+        <h2>Momentos</h2>
+        <div class="slider">
+          <button class="slider-btn prev" id="prevBtn" aria-label="Anterior">
+            ‹
+          </button>
+          <div class="slides" id="momentsSlider">
+            <div class="slide"><img src="assets/Kintsugui.jpg" /></div>
+            <div class="slide"><img src="assets/Graduación.jpg" /></div>
+            <div class="slide"><img src="assets/primerafoto.jpg" /></div>
+            <div class="slide"><img src="assets/mynurse.jpg" /></div>
+            <div class="slide"><img src="assets/stb.jpg" /></div>
+            <div class="slide"><img src="assets/macdate.jpg" /></div>
+            <div class="slide"><img src="assets/tacodate.jpg" /></div>
+            <div class="slide"><img src="assets/ns1.jpg" /></div>
+            <div class="slide"><img src="assets/videollamada.jpg" /></div>
+            <div class="slide"><img src="assets/videollamada2.jpg" /></div>
+            <div class="slide"><img src="assets/ns2.jpg" /></div>
+            <div class="slide"><img src="assets/cookies.jpg" /></div>
+            <div class="slide"><img src="assets/videollamada3.jpg" /></div>
+            <div class="slide"><img src="assets/ns3.jpg" /></div>
+            <div class="slide"><img src="assets/ns4.jpg" /></div>
+            <div class="slide"><img src="assets/food1.jpg" /></div>
+            <div class="slide"><img src="assets/ns5.jpg" /></div>
+            <div class="slide"><img src="assets/food2.jpg" /></div>
+            <div class="slide"><img src="assets/honguito.jpg" /></div>
+            <div class="slide"><img src="assets/ns6.jpg" /></div>
+            <div class="slide"><img src="assets/ns7.jpg" /></div>
+            <div class="slide"><img src="assets/ns8.jpg" /></div>
+            <div class="slide"><img src="assets/you.jpg" /></div>
+            <div class="slide"><img src="assets/you2.jpg" /></div>
+            <div class="slide"><img src="assets/ns9.jpg" /></div>
+            <div class="slide"><img src="assets/pintacafe.jpg" /></div>
+            <div class="slide"><img src="assets/you3.jpg" /></div>
+            <div class="slide"><img src="assets/videollamada4.jpg" /></div>
+          </div>
+          <button class="slider-btn next" id="nextBtn" aria-label="Siguiente">
+            ›
+          </button>
+        </div>
+      </section>
+
+      <dialog id="lightbox" class="lightbox">
+        <button id="closeLightbox" class="close">✕</button>
+        <img id="lightboxImg" src="" alt="" />
+        <p id="lightboxQuote" class="lightbox-quote"></p>
+      </dialog>
+    </main>
 
     <section id="canciones" class="canciones-section">
       <h2>Canciones Favoritas</h2>
-      <p class="canciones-desc">Nuestras canciones especiales, ¡puedes escucharlas aquí mismo!</p>
+      <p class="canciones-desc">
+        Nuestras canciones especiales, ¡puedes escucharlas aquí mismo!
+      </p>
       <div class="canciones-list" id="cancionesList">
         <!-- Aquí aparecerán tus canciones agregadas -->
       </div>
       <form id="agregarCancionForm" class="agregar-cancion-form">
-        <input type="url" id="spotifyUrl" placeholder="URL de Spotify (track)" required>
-        <input type="text" id="tituloCancion" placeholder="Título de la canción" required>
-        <input type="text" id="artistaCancion" placeholder="Artista" required>
+        <input
+          type="url"
+          id="spotifyUrl"
+          placeholder="URL de Spotify (track)"
+          required
+        />
+        <input
+          type="text"
+          id="tituloCancion"
+          placeholder="Título de la canción"
+          required
+        />
+        <input type="text" id="artistaCancion" placeholder="Artista" required />
         <button type="submit">Agregar Canción</button>
       </form>
     </section>
 
-  <footer class="footer">
-    <p>Preparado para el 14 de Febrero y para la mujer más hermosa y especial del mundo  — ¡Sorpresa! ❤️</p>
-  </footer>
+    <footer class="footer">
+      <p>
+        Preparado para el 14 de Febrero y para la mujer más hermosa y especial
+        del mundo — ¡Sorpresa! ❤️
+      </p>
+    </footer>
 
-  <script src="/script.js" defer></script>
-</body>
+    <script src="/script.js" defer></script>
+    <!-- Firebase App (modular CDN) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script>
+      //valores con los de tu proyecto Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyACrx7mz41N6XLGGaLn52zVc2ug5xAz9-A",
+        authDomain: "mochi-9b59f.firebaseapp.com",
+        projectId: "mochi-9b59f",
+        storageBucket: "mochi-9b59f.appspot.com",
+        messagingSenderId: "1012604466771",
+        appId: "1:1012604466771:web:a77eed94358048dcc078a6",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+  </body>
 </html>

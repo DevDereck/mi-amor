@@ -1,8 +1,8 @@
-// --- Canciones Favoritas ---
+// --- Canciones Favoritas con Firestore ---
 const cancionesList = document.getElementById('cancionesList');
 const agregarCancionForm = document.getElementById('agregarCancionForm');
 
-function renderCancion(trackId, titulo, artista, index = null) {
+function renderCancionFirestore(id, trackId, titulo, artista) {
   const iframe = document.createElement('iframe');
   iframe.style.borderRadius = '12px';
   iframe.src = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
@@ -24,27 +24,28 @@ function renderCancion(trackId, titulo, artista, index = null) {
   btn.title = 'Eliminar canción';
   btn.innerHTML = '✕';
   btn.onclick = function() {
-    eliminarCancion(trackId);
+    eliminarCancionFirestore(id);
   };
   card.appendChild(btn);
   cancionesList.appendChild(card);
 }
 
-function eliminarCancion(trackId) {
-  let canciones = JSON.parse(localStorage.getItem('cancionesFavoritas') || '[]');
-  canciones = canciones.filter(c => c.trackId !== trackId);
-  localStorage.setItem('cancionesFavoritas', JSON.stringify(canciones));
-  cargarCancionesGuardadas();
+function eliminarCancionFirestore(id) {
+  db.collection('cancionesFavoritas').doc(id).delete();
 }
 
-function cargarCancionesGuardadas() {
-  cancionesList.innerHTML = '';
-  const canciones = JSON.parse(localStorage.getItem('cancionesFavoritas') || '[]');
-  canciones.forEach((c, i) => renderCancion(c.trackId, c.titulo, c.artista, i));
+function cargarCancionesFirestore() {
+  db.collection('cancionesFavoritas').orderBy('timestamp').onSnapshot(snapshot => {
+    cancionesList.innerHTML = '';
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      renderCancionFirestore(doc.id, data.trackId, data.titulo, data.artista);
+    });
+  });
 }
 
 if (agregarCancionForm) {
-  cargarCancionesGuardadas();
+  cargarCancionesFirestore();
   agregarCancionForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const url = document.getElementById('spotifyUrl').value.trim();
@@ -57,11 +58,12 @@ if (agregarCancionForm) {
       return;
     }
     const trackId = match[1];
-    // Guardar en localStorage
-    const canciones = JSON.parse(localStorage.getItem('cancionesFavoritas') || '[]');
-    canciones.push({ trackId, titulo, artista });
-    localStorage.setItem('cancionesFavoritas', JSON.stringify(canciones));
-    renderCancion(trackId, titulo, artista);
+    db.collection('cancionesFavoritas').add({
+      trackId,
+      titulo,
+      artista,
+      timestamp: Date.now()
+    });
     agregarCancionForm.reset();
   });
 }
